@@ -36,7 +36,7 @@
   border-radius: 2px;
   box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  background: #fff;
+  background: #50884b;
   color: #333;
   font-family: "Open Sans", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,6 +48,150 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.burger-menu {
+  cursor: pointer;
+}
+.burger-menu__bar {
+  width: 5rem;
+  height: 0.5rem;
+  background: white;
+  position: relative;
+  top: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+.burger-menu .bar-1 {
+  animation: re-animation__bar-1 0.5s linear forwards;
+}
+.burger-menu .bar-2 {
+  margin: 1rem auto;
+  animation: re-animation__bar-2 0.5s linear forwards;
+  z-index: 0;
+}
+.burger-menu .bar-3 {
+  position: relative;
+  margin: 1rem auto;
+  animation: re-animation__bar-3 0.5s linear forwards;
+}
+.burger-menu.active .bar-1 {
+  animation: animation__bar-1 0.5s linear forwards;
+}
+.burger-menu.active .bar-2 {
+  animation: animation__bar-2 0.5s linear forwards;
+}
+.burger-menu.active .bar-3 {
+  animation: animation__bar-3 0.5s linear forwards;
+}
+.burger-menu.no-animation div {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+
+@keyframes animation__bar-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    top: 1.5rem;
+    transform: rotate(0deg);
+  }
+  70% {
+    top: 1.5rem;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+    top: 1.5rem;
+  }
+}
+@keyframes animation__bar-2 {
+  0% {
+    opacity: 1;
+    width: 100%;
+  }
+  50% {
+    opacity: 0.5;
+    width: 50%;
+  }
+  70% {
+    opacity: 0;
+    width: 20%;
+  }
+  100% {
+    opacity: 0;
+    width: 0%;
+  }
+}
+@keyframes animation__bar-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    top: -1.5rem;
+    transform: rotate(0deg);
+  }
+  70% {
+    top: -1.5rem;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(135deg);
+    top: -1.5rem;
+  }
+}
+@keyframes re-animation__bar-1 {
+  0% {
+    transform: rotate(45deg);
+    top: 1.5rem;
+  }
+  40% {
+    top: 1.5rem;
+    transform: rotate(0deg);
+  }
+  70% {
+    top: 1.5rem;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes re-animation__bar-2 {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  50% {
+    opacity: 0;
+    width: 20%;
+  }
+  70% {
+    opacity: 0.5;
+    width: 50%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+@keyframes re-animation__bar-3 {
+  0% {
+    transform: rotate(135deg);
+    top: -1.5rem;
+  }
+  40% {
+    top: -1.5rem;
+    transform: rotate(0deg);
+  }
+  70% {
+    top: -1.5rem;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /*# sourceMappingURL=002.css.map */
