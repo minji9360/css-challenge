@@ -34,6 +34,7 @@
   height: 11rem;
   border-radius: 5.5rem;
   overflow: hidden;
+  animation: show 3s cubic-bezier(0.15, 0.1, 0.15, 1.0) infinite alternate;
 
   .background {
     position: relative;
@@ -87,5 +88,15 @@
       border-right: 3.7rem solid transparent;
       transform: rotate(180deg);
     }
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
