@@ -29,7 +29,7 @@
   height: 11rem;
   border-radius: 5.5rem;
   overflow: hidden;
-  animation: show 3s cubic-bezier(0.15, 0.1, 0.15, 1) infinite alternate;
+  animation: show 2s cubic-bezier(0.15, 0.1, 0.15, 1) infinite alternate;
 }
 .circle .background {
   position: relative;
@@ -49,8 +49,10 @@
   border-radius: 1.1rem;
   background: yellow;
   position: relative;
-  top: 2.5rem;
+  top: 8.5rem;
+  left: 4.5rem;
   z-index: 999;
+  animation: moveSun 4s cubic-bezier(0, 0, 1, 1) infinite;
 }
 .circle .mountain {
   position: absolute;
@@ -85,6 +87,18 @@
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes moveSun {
+  0% {
+    transform: rotate(-180deg) translate(8rem) rotate(0deg);
+    animation-timing-function: ease-in-out;
+  }
+  30% {
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: rotate(0deg) translate(8rem) rotate(180deg);
   }
 }
 
