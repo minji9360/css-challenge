@@ -27,9 +27,9 @@
 .circle {
   width: 11rem;
   height: 11rem;
-  border-radius: 5.5rem;
+  clip-path: circle(5.5rem at 5.5rem 5.5rem);
   overflow: hidden;
-  animation: show 2s cubic-bezier(0.15, 0.1, 0.15, 1) infinite alternate;
+  animation: show 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 .circle .background {
   position: relative;
@@ -46,93 +46,109 @@
 .circle .sun {
   width: 2.2rem;
   height: 2.2rem;
-  border-radius: 1.1rem;
+  border-radius: 50%;
   background: yellow;
   position: relative;
-  top: 8.5rem;
+  top: 0.5rem;
   left: 4.5rem;
   z-index: 999;
-  animation: moveSun 4s cubic-bezier(0, 0, 1, 1) infinite;
-}
-.circle .mountain {
-  position: absolute;
-  top: 4rem;
-  left: 2rem;
-  border-bottom: 3.5rem solid #a0a0a0;
-  border-left: 3.5rem solid transparent;
-  border-right: 3.7rem solid transparent;
-  animation: changeMountainColorRight 4s infinite;
+  transform-origin: 50% 400%;
+  animation: moveSun 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 .circle .mountain__left {
   position: absolute;
-  top: 0;
-  left: -3.5rem;
-  border-bottom: 3.5rem solid #f7f7f7;
-  border-left: 3.5rem solid transparent;
-  border-right: 1.25rem solid transparent;
-  z-index: 999;
-  animation: changeMountainColorLeft 4s infinite;
+  top: 4rem;
+  left: 2rem;
+  height: 3.5rem;
+  width: 7.1rem;
+  background: #F4F4F4;
+  clip-path: polygon(0% 100%, 65% 100%, 50% 0%);
+  animation: changeMountainColor 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
+}
+.circle .mountain__right {
+  position: absolute;
+  top: 4rem;
+  left: 5.5rem;
+  height: 3.5rem;
+  width: 3.6rem;
+  clip-path: polygon(30% 100%, 100% 100%, 0% 0%);
+  background: #DDDADA;
+  animation: changeMountainColor 4s cubic-bezier(0.4, 0, 0.49, 1) infinite reverse;
 }
 .circle .mountain__shadow {
   position: absolute;
   top: 7.5rem;
-  left: 2rem;
-  border-bottom: 3.5rem solid #af9f6b;
-  border-left: 3.5rem solid transparent;
-  border-right: 3.7rem solid transparent;
-  transform: rotate(180deg);
+  left: -5rem;
+  height: 2.5rem;
+  width: 22rem;
+  background: rgba(0, 0, 0, 0.2);
+  transform-origin: 50% 0%;
+  animation: changeMountainShadow 4s cubic-bezier(0.4, 0, 0.49, 1) infinite;
 }
 
 @keyframes show {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  30% {
     opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes moveSun {
   0% {
-    transform: rotate(-180deg) translate(8rem) rotate(0deg);
-    animation-timing-function: ease-in-out;
+    background: #F57209;
+    transform: rotate(-70deg);
   }
   30% {
-    animation-timing-function: ease-in;
+    background: yellow;
+    transform: rotate(-28deg);
+  }
+  70% {
+    background: yellow;
   }
   100% {
-    transform: rotate(0deg) translate(8rem) rotate(180deg);
+    background: #F57209;
+    transform: rotate(70deg);
   }
 }
-@keyframes changeMountainColorLeft {
+@keyframes changeMountainColor {
   0% {
-    border-bottom: 3.5rem solid #f7f7f7;
-    border-left: 3.5rem solid transparent;
-    border-right: 1.25rem solid transparent;
-    animation-timing-function: ease-in-out;
+    background: #a0a0a0;
   }
   30% {
-    animation-timing-function: ease-in;
+    background: #F4F4F4;
+  }
+  70% {
+    background: #DDDADA;
   }
   100% {
-    border-bottom: 3.5rem solid #a0a0a0;
-    border-left: 3.5rem solid transparent;
-    border-right: 1.25rem solid transparent;
+    background: #a0a0a0;
   }
 }
-@keyframes changeMountainColorRight {
+@keyframes changeMountainShadow {
   0% {
-    border-bottom: 3.5rem solid #a0a0a0;
-    border-left: 3.5rem solid transparent;
-    border-right: 3.7rem solid transparent;
-    animation-timing-function: ease-in-out;
+    transform: scaleY(0);
+    clip-path: polygon(7rem 0%, 14.2rem 0%, 100% 100%);
   }
   30% {
-    animation-timing-function: ease-in;
+    transform: scaleY(1);
+    clip-path: polygon(7rem 0%, 14.2rem 0%, 80% 100%);
+  }
+  55% {
+    transform: scaleY(0.4);
+  }
+  75% {
+    transform: scaleY(1);
   }
   100% {
-    border-bottom: 3.5rem solid #f7f7f7;
-    border-left: 3.5rem solid transparent;
-    border-right: 3.7rem solid transparent;
+    transform: scaleY(0);
+    clip-path: polygon(7rem 0%, 14.2rem 0%, 0% 100%);
   }
 }
 
